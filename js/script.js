@@ -58,15 +58,28 @@ function validaChances(num){
     else{
         numerosJogados.push(num)
     if(myTry === 6 && num != randomNumber){
-        displayJogadas(num)
+        displayTry(num)
         textmsg(`Game Over! O número secreto era ${randomNumber}`)
         endGame()
     }
     else{
-        displayJogadas(num)
+        displayTry(num)
         checkTry(num)
     }
     }
+}
+
+/*
+display jogadas 
+vamos inserir o num na pagina html
+*/
+
+function displayTry(num){
+    textBox.value = ""
+    textBox.focus()
+    previousTry.innerHTML += `${num}, `
+    myTry++
+    remainingTry.innerHTML = `${7 - myTry}`
 }
 
 /*
@@ -76,10 +89,7 @@ verificara se o numero jgoado é menor que o numero aleatroio
 verificara s eo nuimero jogado é maior que o numero aleatorio
 */
 
-/*
-display jogadas 
-vamos inserir o num na pagina html
-*/
+
 
 /*
 ende game()
