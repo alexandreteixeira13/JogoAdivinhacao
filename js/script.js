@@ -68,3 +68,21 @@ function validaChances(num){
     }
     }
 }
+
+/*
+funcao checktry
+verificara se o numero jogado eh igual ao numero aleatorio
+verificara se o numero jgoado é menor que o numero aleatroio
+verificara s eo nuimero jogado é maior que o numero aleatorio
+*/
+
+/*
+display jogadas 
+vamos inserir o num na pagina html
+*/
+
+/*
+ende game()
+
+encerra o jogo
+*/
