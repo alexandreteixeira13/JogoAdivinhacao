@@ -90,6 +90,10 @@ function displayTry(num){
     remainingTry.innerHTML = `${7 - myTry}`
 }
 
+function endGame(){
+    
+}
+
 /*
 funcao checktry
 verificara se o numero jogado eh igual ao numero aleatorio
