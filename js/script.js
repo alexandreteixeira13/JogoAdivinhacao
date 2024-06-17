@@ -2,6 +2,8 @@
 const randomNumber =  parseInt(Math.random()*100+1)
 console.log(randomNumber)
 const Sound = new Audio('js/stock.mp3')
+const error = new Audio('js/buzzer.mp3')
+const repeatNum = new Audio('js/stock')
 
 //Manipulando os elementos html
 const buttonPlay = document.querySelector('#jogar') // Constante que vai receber o botão jogar
@@ -37,21 +39,25 @@ if(playGame){
 
 function validaChances(num){
     if(isNaN(num)){ //se o conteudo da variavel nao for um numero execute o que estiver dentro da chaves
+        error.play()
         alert('Atenção!! O valor digitado não é valido. Digite apenas valores númericos entre 1 e 100') //exiba um alerta avisando que o valor inserido não é valido
         textBox.value = ''
         textBox.focus()
     }
     else if(num < 1){
+        error.play()
         alert('atenção!! o valor digitado NÃO pode ser menor que 1')
         textBox.value = ''
         textBox.focus()
     }
     else if (num > 100){
+        error.play()
         alert('Atenção!! o valor digitado NÃO pode ser maior que 100')
         textBox.value = ''
         textBox.focus()
     }
     else if (numerosJogados.includes(num)){
+        repeatNum.play
         alert(`O número ${num} já foi jogado anteriormente, use outro!`)
         textBox.value = ''
         textBox.focus()
