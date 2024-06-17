@@ -1,6 +1,7 @@
 //math = objeto utilizado em operações matemáticas.
 const randomNumber =  parseInt(Math.random()*100+1)
 console.log(randomNumber)
+const Sound = new Audio('js/stock.mp3')
 
 //Manipulando os elementos html
 const buttonPlay = document.querySelector('#jogar') // Constante que vai receber o botão jogar
@@ -57,15 +58,16 @@ function validaChances(num){
     }
     else{
         numerosJogados.push(num)
-    if(myTry === 6 && num != randomNumber){
-        displayTry(num)
-        textmsg(`Game Over! O número secreto era ${randomNumber}`)
-        endGame()
-    }
-    else{
-        displayTry(num)
-        checkTry(num)
-    }
+        Sound.play()
+        if(myTry === 6 && num != randomNumber){
+            displayTry(num)
+            textmsg(`Game Over! O número secreto era ${randomNumber}`)
+            endGame()
+        }
+        else{
+            displayTry(num)
+            checkTry(num)
+        }
     }
 }
 
