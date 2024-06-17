@@ -3,7 +3,7 @@ const randomNumber =  parseInt(Math.random()*100+1)
 console.log(randomNumber)
 const Sound = new Audio('js/stock.mp3')
 const error = new Audio('js/buzzer.mp3')
-const repeatNum = new Audio('js/stock')
+const repeatNum = new Audio('js/stock.mp3')
 
 //Manipulando os elementos html
 const buttonPlay = document.querySelector('#jogar') // Constante que vai receber o botão jogar
