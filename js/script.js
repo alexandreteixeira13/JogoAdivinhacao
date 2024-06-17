@@ -1,22 +1,18 @@
-
 //math = objeto utilizado em operações matemáticas.
 const randomNumber =  parseInt(Math.random()*100+1)
-//console.log(randomNumber)
+console.log(randomNumber)
 
+//Manipulando os elementos html
+const buttonPlay = document.querySelector('#jogar') // Constante que vai receber o botão jogar
+const textBox = document.querySelector('#txtNumero') //Caixa de texto
+const previousTry = document.querySelector('.vezes') //Jogadas anteriores, span
+const remainingTry = document.querySelector('.numChances') //Jogadas restantes, span
+const restart = document.querySelector('.resultados') //Recomeçar, elemento html div
+const warnings   = document.querySelector('.avisos') //Pegando terceiro paragrafo da div resultados
 
-//manipulando elementos HTML
+//Criando um paragrafo
 
-const buttonPlay = document.querySelector('#jogar') // botao jogar
-const textBox = document.querySelector('#txtNumero') //caixa de texto
-const previousTry = document.querySelector('.vezes') //span
-const remainingTry = document.querySelector('.numChances')
-const restart = document.querySelector('.resultados') //div com paragrafos
-const warnings   = document.querySelector('.avisos') //terceiro paragrafo da div resultados
-
-
-//creating HTML elements
-
-const paragrafo = document.createElement('p')
+const paragrafo = document.createElement('p') //Criando um paragrafo
 
 //criação de um vetor para armazenar os numeros jogados
 
@@ -43,5 +39,32 @@ function validaChances(num){
         alert('Atenção!! O valor digitado não é valido. Digite apenas valores númericos entre 1 e 100') //exiba um alerta avisando que o valor inserido não é valido
         textBox.value = ''
         textBox.focus()
+    }
+    else if(num < 1){
+        alert('atenção!! o valor digitado NÃO pode ser menor que 1')
+        textBox.value = ''
+        textBox.focus()
+    }
+    else if (num > 100){
+        alert('Atenção!! o valor digitado NÃO pode ser maior que 100')
+        textBox.value = ''
+        textBox.focus()
+    }
+    else if (numerosJogados.includes(num)){
+        alert(`O número ${num} já foi jogado anteriormente, use outro!`)
+        textBox.value = ''
+        textBox.focus()
+    }
+    else{
+        numerosJogados.push(num)
+    if(myTry === 6 && num != randomNumber){
+        displayJogadas(num)
+        textmsg(`Game Over! O número secreto era ${randomNumber}`)
+        endGame()
+    }
+    else{
+        displayJogadas(num)
+        checkTry(num)
+    }
     }
 }
